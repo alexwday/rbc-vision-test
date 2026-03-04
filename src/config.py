@@ -29,7 +29,13 @@ class Config:
     OAUTH_CLIENT_ID: str = os.getenv("CLIENT_ID", "")
     OAUTH_CLIENT_SECRET: str = os.getenv("CLIENT_SECRET", "")
 
-    VISION_MODEL: str = os.getenv("VISION_MODEL", "gpt-4o")
+    @property
+    def VISION_MODEL(self) -> str:
+        """Get vision model from environment. Raises if not set."""
+        model = os.getenv("VISION_MODEL")
+        if not model:
+            raise ValueError("VISION_MODEL environment variable is required")
+        return model
 
     @classmethod
     def is_local_mode(cls) -> bool:
@@ -40,17 +46,16 @@ class Config:
         """
         return bool(os.getenv("OPENAI_API_KEY"))
 
-    @classmethod
-    def get_endpoint_info(cls) -> dict:
+    def get_endpoint_info(self) -> dict:
         """Get information about the configured endpoint.
 
         Returns:
             Dict with base_url, model, and mode (local/rbc).
         """
         return {
-            "base_url": cls.BASE_URL,
-            "model": cls.VISION_MODEL,
-            "mode": "local" if cls.is_local_mode() else "rbc",
+            "base_url": self.BASE_URL,
+            "model": self.VISION_MODEL,
+            "mode": "local" if self.is_local_mode() else "rbc",
         }
 
 

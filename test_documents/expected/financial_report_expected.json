@@ -1,0 +1,10 @@
+{
+  "document": "financial_report",
+  "character_count": 1045,
+  "word_count": 189,
+  "critical_values": {
+    "net_revenue_q4": "$1,612.00",
+    "yoy_growth": "12.5%",
+    "cogs_q4": "($410.10)"
+  }
+}

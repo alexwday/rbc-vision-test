@@ -1,0 +1,13 @@
+{
+  "document": "complex_layout",
+  "character_count": 1709,
+  "word_count": 313,
+  "critical_values": {
+    "total_return": "8.7%",
+    "benchmark_return": "7.5%",
+    "sharpe_ratio": "1.42",
+    "tech_return": "+12.4%",
+    "energy_return": "+5.1%",
+    "us_equities_weight": "45.0%"
+  }
+}
